@@ -14,6 +14,12 @@
 	text-align: center;
 	margin: 10px;
 }
+
+.container h1{
+	font-family: 'Permanent Marker', cursive;
+	text-align: center;
+}
+
 img {
 	max-width: 100%;
 	width: 200px;
@@ -23,4 +29,9 @@ img {
 body{
 
 	background-color: #697f8c !important;
+	background-image: url(assets/images/background1.jpg);
+	background-size: 300px;
+	background-position: left;
+
+
 }
