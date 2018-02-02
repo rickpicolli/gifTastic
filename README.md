@@ -7,6 +7,8 @@ Not finding your favorite tv show in the button? Don't worry about that! you can
 
 Want to try it? So go ahead and click on this link:
 
+https://rickpicolli.github.io/gifTastic/
+
 
 
 ![Alt text](/assets/images/screenshot.png?raw=true)
