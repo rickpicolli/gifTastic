@@ -4,12 +4,23 @@
 	margin-bottom: 5px !important;
 
 }
+#gif-appear {
+	text-align: center;
+	margin: 15px auto 5px;
+}
+.wrap {
+	display: inline-block;
+	float: left;
+	text-align: center;
+	margin: 10px;
+}
+img {
+	max-width: 100%;
+	width: 200px;
+	height: 150px;
+}
 
+body{
 
-   /* input {
-      margin-left: 10px;
-    }*/
-/*
-    h1{
-    	font-size: 10px;
-    }*/
+	background-color: #697f8c !important;
+}

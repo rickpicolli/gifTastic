@@ -14,154 +14,29 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
  
-</head>
+</head>-
 <body>
 	<div class="container">
-    <h1>Gifs of favorites TV Shows</h1>
+	    <h1>Gifs of favorites TV Shows</h1>
 
-	<div id="series-buttons"></div>
+		<div id="series-buttons"></div>
+		<br><br>
 
-	<form id="form">
-		<label for="movie-input">Please enter your favorite TV Show / Serie</label>
-		<input class="form-control" type="text" placeholder="Default input" id="gif-input">
-		<br>
-		<button type="button" class="btn btn-success" id="add-gif">Search</button>
+		<form id="form">
+			<label for="movie-input">Please enter your favorite TV Show / Serie</label>
+			<input class="form-control" type="text" placeholder="Default input" id="gif-input">
+			<br>
+			<button type="button" class="btn btn-success" id="add-gif">Search</button>
+		</form>
+		<!-- images appear -->
+
 		<div id="gif-appear"></div>
-	</form>
 
-<!-- 	<div id="gif-appear"></div> -->
+	<!-- 	<div id="gif-appear"></div> -->
 
-	 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script type="text/javascript">
-
-// $(document).ready(function () {
-
-
-var tvShows = ["Westworld", "Game of Thrones", "Amazing Race", "How to get away with murder", "Atypical", "Black Mirror", "How I Met Your Mother", "House", "13 Reasons Why", "Super Natural", "Friends", "Breaking Bad", "The Big Bang Theory"];
-
-
-		function displayGifs() {
-
-        var serie = $(this).attr("data-name");
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + serie + "&api_key=dc6zaTOxFJmzC&limit=10";
-
-      
-        $.ajax({
-          url: queryURL,
-          method: "GET"
-        }).then(function(response) {
-
-        	console.log(results);
-
-        })
-
-        function searchGif(){
-        	$("#gif-appear").empty();
-
-        	var results = response.data;
-
-        	for (var i = 0; i < results.length; i++){
-
-        		 var rating = results[i].rating;
-
-        		 var rate = "<div class='ratings'>Rating: " + rating + " </div>"
-
-        		     	
-        		 var gifDiv = $("<div class='col-md-4'>");
-             
-          var rate = $("<p>").text("Rating: " + rating);
-
-  
-          var gifImages = $("<img>");
-          
-
-
-          gifImages.attr("src", results[i].images.fixed_width_still.url);
-          gifImages.attr("data-animate", results[i].images.fixed_width.url);
-          gifImages.attr("data-still", results[i].images.fixed_width_still.url);
-          gifImages.attr("data-state", "still");
-        
-
-          gifDiv.prepend(rate);
-          gifDiv.prepend(gifImages);
-
-          $("#gif-appear").prepend(gifDiv);
-
-			}
-        }
-        // displayGifs();
-      
-
-    }
-			
-
-		function serieButtons() {
-
-			$("#series-buttons").empty();
-
-			var serie = $(this).attr("data-name");
-
-			for (var i = 0; i < tvShows.length; i++){
-
-				var myButton = $("<button>");
-
-				myButton.addClass("btn btn-warning");
-
-				myButton.attr("data-name", tvShows[i]);
-				myButton.text(tvShows[i]);
-
-				$("#series-buttons").append(myButton);
-				// console.log(myButton);
-			}
-
-
-		}
-
-		$("#add-gif").on("click", function(event) {
-        event.preventDefault();
-        // This line grabs the input from the textbox
-        // var serie = $("#gif-input").val().trim();
-
-                // Adding movie from the textbox to our array, and create a button,
-                // but if in my array of button already have a button with the same name that my new input, nothing happens 
-       // This line grabs the input from the textbox
-        var serie = $("#gif-input").val().trim();
-        if(!tvShows.includes(serie)){
-        	tvShows.push(serie);
-        	serieButtons();
-
-        }
-        
-        serieButtons();
-
-      });
-
-	
-
-        $(document).on("click", ".btn-warning", displayGifs);
-
-        serieButtons();
-
-        $(document).on("click", "img", function(){
-        	var state = $(this).attr("data-state");
-
-        	if (state === "still") {
-        		$(this).attr("src", $(this).attr("data-animate"));
-        		$(this).attr("data-state", "animate");
-
-        	}else {
-        		$(this).attr("src", $(this).attr("data-still"));
-        		$(this).attr("data-state", "still");
-
-        	}
-
-
-        });
-
-
-
-	</script>
-</div>
-
+		
+	</div>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="assets/javascript/gif.js"></script>
 </body>
 </html>
